@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة لوحة البدء والتقارير المدرسية - مدرسة عبد الله بن مسعود</title>
+    <title>المنصة الرقمية لاجتماعات مدرسة عبد الله بن مسعود</title>
     <style>
         :root {
             --primary-color: #0f766e;
             --secondary-color: #14b8a6;
+            --header-bg: #D1FAE5;
+            --box-bg: #F0FDF4;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #1e293b;
-            --border-color: #e2e8f0;
+            --border-color: #cbd5e1;
         }
         * {
             box-sizing: border-box;
@@ -26,155 +28,266 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
-        /* Header */
-        .header {
+        /* Top Banner Header */
+        .top-header {
+            background-color: var(--header-bg);
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 25px;
+            border-bottom: 2px solid #a7f3d0;
             flex-wrap: wrap;
             gap: 15px;
         }
-        .header-right, .header-left {
-            font-size: 14px;
+        .top-right-info {
+            font-size: 13px;
             font-weight: bold;
-            color: #475569;
+            color: #065f46;
+            line-height: 1.8;
         }
-        .header-center {
+        .top-center-logo {
             text-align: center;
         }
-        .header-center img {
-            width: 70px;
+        .top-center-logo img {
+            width: 85px;
             height: auto;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-        .header-center h1 {
-            font-size: 16px;
-            color: var(--primary-color);
+        .top-left-badge {
+            background-color: var(--box-bg);
+            border: 1px solid #34d399;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-align: center;
+            color: #065f46;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
-        /* Report Meta */
-        .report-title {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        /* Main Content Padding */
+        .content-body {
+            padding: 30px;
+        }
+        /* Report Meta Title */
+        .report-title-box {
+            background: var(--box-bg);
+            border: 1px solid #34d399;
+            color: #065f46;
             padding: 15px 20px;
             border-radius: 8px;
             margin-bottom: 25px;
-            text-align: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .report-title-box select {
+            background: #ffffff;
+            border: 1px solid #34d399;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #065f46;
+            outline: none;
         }
         .grid-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 15px;
             margin-bottom: 25px;
         }
         .info-card {
-            background: #f1f5f9;
+            background: var(--box-bg);
             padding: 15px;
             border-radius: 8px;
-            border-right: 4px solid var(--primary-color);
+            border: 1px solid #34d399;
+            border-right: 5px solid var(--primary-color);
         }
         .info-card h3 {
             font-size: 13px;
-            color: #64748b;
+            color: #047857;
             margin-bottom: 5px;
         }
-        .info-card p {
+        .info-card input, .info-card p {
             font-size: 15px;
             font-weight: bold;
             color: var(--text-color);
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
         }
-        /* Sections */
+        /* Section Boxes */
         .section-box {
             margin-bottom: 25px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
+            background: var(--box-bg);
+            border: 1px solid #34d399;
             border-radius: 8px;
             padding: 20px;
         }
         .section-box h2 {
             font-size: 16px;
-            color: var(--primary-color);
+            color: #065f46;
             margin-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
+            border-bottom: 1px dashed #34d399;
             padding-bottom: 8px;
         }
-        .section-box ul {
-            padding-right: 20px;
-        }
-        .section-box li {
-            margin-bottom: 8px;
+        .section-box textarea {
+            width: 100%;
+            height: 90px;
+            border: 1px solid #34d399;
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 10px;
             font-size: 14px;
+            color: var(--text-color);
+            resize: vertical;
+            outline: none;
         }
-        /* Interactive Attendance Box */
-        .attendance-box {
-            background: #fdf4ff;
-            border: 1px solid #f0abfc;
-            padding: 20px;
+        /* Attendance Table */
+        .table-container {
+            margin-bottom: 25px;
+            overflow-x: auto;
+            border: 1px solid #34d399;
             border-radius: 8px;
+            background: #ffffff;
+        }
+        .table-header-title {
+            background: var(--header-bg);
+            padding: 12px 15px;
+            font-weight: bold;
+            color: #065f46;
+            font-size: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
         }
-        .attendance-box h3 {
-            color: #86198f;
-            font-size: 16px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 14px;
         }
-        .counter-controls {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
         }
-        .counter-controls button {
-            background: #a855f7;
+        th {
+            background-color: var(--box-bg);
+            color: #065f46;
+            font-weight: bold;
+        }
+        td select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: #ffffff;
+            font-size: 13px;
+            outline: none;
+        }
+        .sig-icon {
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn-add-row {
+            background: var(--primary-color);
             color: white;
             border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            font-size: 18px;
+            padding: 6px 14px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: 0.2s;
-        }
-        .counter-controls button:hover {
-            background: #9333ea;
-        }
-        #attendanceCount {
-            font-size: 20px;
+            font-size: 13px;
             font-weight: bold;
-            color: #701a75;
-            min-width: 40px;
-            text-align: center;
         }
-        /* Signatures */
-        .signatures {
+        .btn-add-row:hover {
+            background: #115e59;
+        }
+        .btn-del {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        /* Signatures Section */
+        .signatures-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 30px;
-            text-align: center;
-            border-top: 2px solid var(--border-color);
-            padding-top: 20px;
+            border-top: 2px solid #34d399;
+            padding-top: 25px;
         }
-        .sig-box p {
+        .sig-card {
+            background: var(--box-bg);
+            border: 1px solid #34d399;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .sig-card label {
+            font-size: 12px;
+            color: #047857;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        .sig-card select, .sig-card input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #34d399;
+            border-radius: 6px;
+            background: #ffffff;
             font-size: 14px;
             font-weight: bold;
-            color: #334155;
-            margin-top: 5px;
+            margin-bottom: 8px;
+            text-align: center;
+            outline: none;
         }
-        /* Print Button */
+        .signature-pad {
+            border: 2px dashed #34d399;
+            background: #ffffff;
+            height: 50px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #059669;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        /* Bottom Footer */
+        .bottom-footer {
+            background-color: var(--header-bg);
+            padding: 15px 30px;
+            text-align: center;
+            border-top: 2px solid #a7f3d0;
+            color: #065f46;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Actions */
         .actions {
             text-align: center;
             margin-top: 30px;
@@ -183,9 +296,9 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 35px;
             font-size: 16px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -195,124 +308,253 @@
             background-color: #115e59;
         }
         @media print {
-            .actions { display: none; }
+            .actions, .btn-add-row, .btn-del { display: none; }
             body { background: white; padding: 0; }
-            .container { box-shadow: none; border: none; padding: 0; }
+            .container { box-shadow: none; border: none; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- الترويسة الرسمية -->
-    <div class="header">
-        <div class="header-right">
+
+    <!-- الترويسة العليا بلون #D1FAE5 -->
+    <div class="top-header">
+        <div class="top-right-info">
             المملكة العربية السعودية<br>
-            وزارة التعليم<br>
             الإدارة العامة للتعليم بمنطقة الجوف<br>
-            مدرسة عبد الله بن مسعود
+            مدرسة عبدالله بن مسعود
         </div>
-        <div class="header-center">
+        <div class="top-center-logo">
             <img src="https://upload.wikimedia.org/wikipedia/ar/9/91/Ministry_of_Education_%28Saudi_Arabia%29.svg" alt="شعار وزارة التعليم">
-            <h1>وزارة التعليم</h1>
+            <div style="font-size: 12px; font-weight: bold; color: #065f46;">وزارة التعليم</div>
         </div>
-        <div class="header-left">
-            الرقم: 448<br>
-            التاريخ: 05/07/1448هـ<br>
-            المرفقات: محضر اجتماع
-        </div>
-    </div>
-
-    <!-- عنوان التقرير -->
-    <div class="report-title">
-        محضر اجتماع مجموعة تركيز التعريف بمحتوى منصة «عين» وتوظيفها تعليمياً
-    </div>
-
-    <!-- معلومات أساسية -->
-    <div class="grid-info">
-        <div class="info-card">
-            <h3>مكان الاجتماع</h3>
-            <p>مصادر التعلم</p>
-        </div>
-        <div class="info-card">
-            <h3>تاريخ الاجتماع</h3>
-            <p>05 / 07 / 1448 هـ</p>
-        </div>
-        <div class="info-card">
-            <h3>المدرسة</h3>
-            <p>مدرسة عبد الله بن مسعود</p>
+        <div class="top-left-badge">
+            المنصة الرقمية<br>
+            <span style="font-size: 12px; font-weight: normal;">مدرسة عبدالله بن مسعود</span>
         </div>
     </div>
 
-    <!-- الهدف من الاجتماع -->
-    <div class="section-box">
-        <h2>الهدف من الاجتماع</h2>
-        <p>التوعية والتعريف بمحتويات منصة «عين» التعليمية والإثرائية، وبحث أفضل السبل والآليات لتوظيفها وتفعيلها بفاعلية داخل الموقف التعليمي لدعم نواتج التعلم وتحسين بيئة التعليم الرقمية.</p>
+    <div class="content-body">
+
+        <!-- عنوان المحضر واختيار اللجان -->
+        <div class="report-title-box">
+            <span>📌 محضر اجتماع رقمي تفاعلي</span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label style="font-size: 14px;">اسم اللجنة / الفريق:</label>
+                <select id="committeeSelect">
+                    <option>لجنة التميز</option>
+                    <option>لجنة الصندوق المدرسي</option>
+                    <option>اللجنة الإدارية</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- معلومات أساسية -->
+        <div class="grid-info">
+            <div class="info-card">
+                <h3>مكان الاجتماع</h3>
+                <input type="text" value="قاعة الاجتماعات بمدرسة عبدالله بن مسعود">
+            </div>
+            <div class="info-card">
+                <h3>تاريخ الاجتماع</h3>
+                <input type="text" value="1448/07/05 هـ">
+            </div>
+            <div class="info-card">
+                <h3>المدرسة</h3>
+                <p>مدرسة عبدالله بن مسعود</p>
+            </div>
+        </div>
+
+        <!-- الهدف من الاجتماع -->
+        <div class="section-box">
+            <h2>الهدف من الاجتماع (توليد أفكار أكثر تميزاً وجودة)</h2>
+            <textarea placeholder="اكتب الهدف التحفيزي لتوليد أفكار إبداعية وتطويرية متميزة...">مناقشة الابتكارات الإدارية والتعليمية ووضع خطط تطويرية نوعية تساهم في رفع كفاءة الأداء المدرسي وتحقيق مخرجات تعليمية عالية الجودة.</textarea>
+        </div>
+
+        <!-- أبرز المحاور -->
+        <div class="section-box">
+            <h2>أبرز المحاور والنقاط المثارة (أفكار متميزة وعالية الجودة)</h2>
+            <textarea placeholder="استعراض المحاور بأسلوب يولد أفكاراً إبداعية...">1. استعراض المبادرات الحديثة في دعم التحول الرقمي وتفعيل منصات التعلم.
+2. آليات تعزيز التواصل الفعّال بين الكادر التعليمي والإداري وأولياء الأمور.
+3. دراسة الحلول المبتكرة لتذليل التحديات الميدانية ورفع الدافعية المهنية.</textarea>
+        </div>
+
+        <!-- أبرز التوصيات -->
+        <div class="section-box">
+            <h2>أبرز التوصيات الصادرة (جودة وتميز التطبيق)</h2>
+            <textarea placeholder="صياغة التوصيات بتميز وجودة عالية...">1. إطلاق برامج إثرائية تفاعلية تعتمد على تبادل الخبرات الناجحة بين المعلمين.
+2. تشكيل فريق عمل مصغر لمتابعة تنفيذ المبادرات المطروحة خلال الاجتماع ورفع تقارير دورية.
+3. تفعيل الأنشطة الرقمية الداعمة للبيئة المدرسية الجاذبة.</textarea>
+        </div>
+
+        <!-- جدول الحضور التفاعلي -->
+        <div class="table-container">
+            <div class="table-header-title">
+                <span>بيان الحضور والمشاركين</span>
+                <button class="btn-add-row" onclick="addAttendanceRow()">+ إضافة مشارك</button>
+            </div>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">م</th>
+                        <th style="width: 30%;">اسم العضو</th>
+                        <th style="width: 30%;">الوظيفة أو العمل</th>
+                        <th style="width: 20%;">الصفة</th>
+                        <th style="width: 10%;">التوقيع</th>
+                        <th style="width: 5%;">حذف</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- الصفوف ستضاف برمجياً أو افتراضياً -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- التوقيعات والاعتمادات الاحترافية -->
+        <div class="signatures-grid">
+            <!-- معد التقرير -->
+            <div class="sig-card">
+                <label>معد التقرير</label>
+                <input type="text" value="مساعد إداري / خالد شاقي الرويلي" readonly>
+                <label>أيقونة التوقيع المعتمد</label>
+                <div class="signature-pad" onclick="alert('تم توقيع التقرير إلكترونياً بنجاح ✅')">
+                    ✍️ انقر للتوقيع الرقمي
+                </div>
+            </div>
+
+            <!-- مشرف الدعم -->
+            <div class="sig-card">
+                <label>مشرف الدعم</label>
+                <select>
+                    <option>مشرف الدعم</option>
+                    <option>مشرف منسق</option>
+                </select>
+                <label>أيقونة التوقيع المعتمد</label>
+                <div class="signature-pad" onclick="alert('تم اعتماد توقيع مشرف الدعم ✅')">
+                    ✍️ انقر للتوقيع الرقمي
+                </div>
+            </div>
+
+            <!-- مدير المدرسة -->
+            <div class="sig-card">
+                <label>مدير المدرسة</label>
+                <input type="text" value="عويد عشبان الرويلي" readonly>
+                <label>أيقونة التوقيع المعتمد</label>
+                <div class="signature-pad" onclick="alert('تم اعتماد توقيع مدير المدرسة ✅')">
+                    ✍️ انقر للتوقيع الرقمي
+                </div>
+            </div>
+        </div>
+
+        <!-- زر الطباعة -->
+        <div class="actions">
+            <button class="btn-print" onclick="window.print()">🖨️ طباعة التقرير / حفظ بصيغة PDF</button>
+        </div>
+
     </div>
 
-    <!-- أبرز المحاور -->
-    <div class="section-box">
-        <h2>أبرز المحاور والنقاط المثارة</h2>
-        <ul>
-            <li>استعراض المكونات الإثرائية والكتب الرقمية وبنك الأسئلة والمعرفة المتاح عبر منصة «عين».</li>
-            <li>مناقشة أبرز التحديات والعقبات الميدانية ووضع الحلول المناسبة لتشجيع الطلاب وأولياء الأمور على الاستخدام.</li>
-            <li>طرق دمج الوسائط الرقمية والإثراءات التفاعلية ضمن الخطة الدرسية اليومية للمعلم.</li>
-        </ul>
+    <!-- الترويسة السفلية بلون #D1FAE5 -->
+    <div class="bottom-footer">
+        <span>🏫 مدرسة عبدالله بن مسعود</span> - <span>المنصة الرقمية التفاعلية للاجتماعات</span>
     </div>
 
-    <!-- أبرز التوصيات -->
-    <div class="section-box">
-        <h2>أبرز التوصيات الصادرة</h2>
-        <ul>
-            <li>حث الطلاب على الاستفادة القصوى من الإثراءات والدروس الرقمية المتاحة عبر المنصة والتفاعل معها.</li>
-            <li>تبادل النماذج والخبرات المتميزة والناجحة بين المعلمين في تفعيل الدروس الرقمية بمركز مصادر التعلم.</li>
-            <li>رفع تقرير دوري موجز عن مستوى تفعيل المنصة بالمدرسة والتحديات التي تم تذليلها.</li>
-        </ul>
-    </div>
-
-    <!-- العداد التفاعلي للحضور -->
-    <div class="attendance-box">
-        <div>
-            <h3>بيان إجمالي الحضور التفاعلي</h3>
-            <p style="font-size: 13px; color: #6b21a8;">يمكنك تعديل عدد الحضور المعتمد ديناميكياً:</p>
-        </div>
-        <div class="counter-controls">
-            <button onclick="updateCount(-1)">-</button>
-            <span id="attendanceCount">34</span>
-            <button onclick="updateCount(1)">+</button>
-        </div>
-    </div>
-
-    <!-- التوقيعات -->
-    <div class="signatures">
-        <div class="sig-box">
-            <span style="font-size: 12px; color: #64748b;">معد التقرير</span>
-            <p>مساعد إداري / خالد شاقي الرويلي</p>
-        </div>
-        <div class="sig-box">
-            <span style="font-size: 12px; color: #64748b;">مشرف الدعم</span>
-            <p>مختص الدعم الفني</p>
-        </div>
-        <div class="sig-box">
-            <span style="font-size: 12px; color: #64748b;">مدير المدرسة</span>
-            <p>عويد عشبان الرويلي</p>
-        </div>
-    </div>
-
-    <!-- زر الطباعة -->
-    <div class="actions">
-        <button class="btn-print" onclick="window.print()">🖨️ طباعة التقرير / حفظ PDF</button>
-    </div>
 </div>
 
 <script>
-    function updateCount(change) {
-        const countSpan = document.getElementById('attendanceCount');
-        let currentCount = parseInt(countSpan.innerText);
-        currentCount += change;
-        if (currentCount < 0) currentCount = 0;
-        countSpan.innerText = currentCount;
+    const namesList = [
+        "عويد عشبان الرويلي",
+        "صلاح قريان الرويلي",
+        "محمد نايف الرويلي",
+        "لافي وقاف الرويلي",
+        "عبدالله حلسه الرويلي",
+        "هاني نزال الرويلي",
+        "عطالله قياض الرويلي",
+        "خالد شاقي الرويلي",
+        "نايف وراد الرويلي",
+        "نواف وراد الرويلي",
+        "بدر خليف الرويلي",
+        "هلا مليح الرويلي",
+        "محمد محارب الرويلي",
+        "حمدان تاجر الرويلي",
+        "وليد عبدالله المعيقل",
+        "سعود غازي الرويلي"
+    ];
+
+    const jobsList = [
+        "مدير المدرسة",
+        "وكيل الشؤون التعليمية",
+        "وكيل شؤون الطلاب",
+        "رائد نشاط",
+        "موجه طلابي",
+        "أمين مصادر تعلم",
+        "موجه صحي",
+        "معلم",
+        "مساعد إداري"
+    ];
+
+    const rolesList = [
+        "رئيس اللجنة",
+        "عضو",
+        "مقرر اللجنة"
+    ];
+
+    function createSelectOptions(optionsArray, defaultVal) {
+        let html = '';
+        optionsArray.forEach(opt => {
+            let selected = (opt === defaultVal) ? 'selected' : '';
+            html += `<option value="${opt}" ${selected}>${opt}</option>`;
+        });
+        return html;
     }
+
+    function createNamesSelect(selectedName) {
+        let html = '<select>';
+        namesList.forEach(name => {
+            let selected = (name === selectedName) ? 'selected' : '';
+            html += `<option value="${name}" ${selected}>${name}</option>`;
+        });
+        html += '</select>';
+        return html;
+    }
+
+    function addAttendanceRow(defaultName = '') {
+        const tbody = document.getElementById('tableBody');
+        const rowCount = tbody.rows.length + 1;
+        const row = tbody.insertRow();
+
+        row.innerHTML = `
+            <td style="text-align: center; font-weight: bold;">${rowCount}</td>
+            <td>${createNamesSelect(defaultName)}</td>
+            <td><select>${createSelectOptions(jobsList, 'معلم')}</select></td>
+            <td><select>${createSelectOptions(rolesList, 'عضو')}</select></td>
+            <td class="sig-icon" onclick="this.style.color='#059669'; this.innerText='✔️ موقع'; alert('تم التوقيع بنجاح');" title="انقر للتوقيع">✍️</td>
+            <td style="text-align: center;"><button class="btn-del" onclick="deleteRow(this)">حذف</button></td>
+        `;
+    }
+
+    function deleteRow(btn) {
+        const row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        updateRowNumbers();
+    }
+
+    function updateRowNumbers() {
+        const tbody = document.getElementById('tableBody');
+        for (let i = 0; i < tbody.rows.length; i++) {
+            tbody.rows[i].cells[0].innerText = i + 1;
+        }
+    }
+
+    // إضافة أول 4 أسماء افتراضياً كنموذج أولي عند فتح الصفحة
+    window.onload = function() {
+        if(namesList.length > 0) {
+            addAttendanceRow("عويد عشبان الرويلي");
+            addAttendanceRow("خالد شاقي الرويلي");
+            addAttendanceRow("هاني نزال الرويلي");
+            addAttendanceRow("وليد عبدالله المعيقل");
+        }
+    };
 </script>
 
 </body>
